@@ -30,12 +30,12 @@ export default function Home() {
 
           <p className="mb-4">
             If you&apos;d like to collaborate, please&nbsp;
-            <a
+            <Link
               href="mailto:guptagunal@gmail.com"
               className="border-b inline-block"
             >
               send me an email
-            </a>
+            </Link>
             &nbsp;or reach out on any of my social handles.
           </p>
         </div>
