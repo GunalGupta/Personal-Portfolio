@@ -1,6 +1,7 @@
 import Image from "next/image";
 import React from "react";
 import Link from "next/link";
+import SocialIcons from "@/components/SocialIcons";
 
 export default function Home() {
   return (
@@ -38,6 +39,9 @@ export default function Home() {
             </Link>
             &nbsp;or reach out on any of my social handles.
           </p>
+          <div className="flex space-x-4 mb-2 mt-4">
+            <SocialIcons />
+          </div>
           <p className="mt-4 border-b inline-block cursor-pointer">
           <Link href="/resume" rel="noopener noreferrer">
             View Resume
@@ -46,7 +50,6 @@ export default function Home() {
         </div>
       </section>
       <div className="my-8 w-full border-t border-gray-200 dark:border-gray-800" />
-
-      </React.Fragment>
+    </React.Fragment>
   );
 }
