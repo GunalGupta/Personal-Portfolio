@@ -15,7 +15,7 @@ const ResumePage: React.FC = () => {
             className="w-full h-[calc(100vh-200px)]"
             title="Resume PDF"
           />
-          <Button asChild className='mt-4'>
+          <Button asChild className='mt-4 hover:scale-105 transform transition duration-200'>
             <Link href="./_static/Gunal_Gupta_IIIT_Vadodara_ICD_Resume.pdf" download="Gunal_Gupta_IIIT_Vadodara_ICD_Resume.pdf" target='_blank'>
               <Download className="mr-2 h-4 w-4" /> Download Resume
             </Link>
