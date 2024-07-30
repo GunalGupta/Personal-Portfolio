@@ -38,6 +38,11 @@ export default function Home() {
             </Link>
             &nbsp;or reach out on any of my social handles.
           </p>
+          <p className="mt-4 border-b inline-block cursor-pointer">
+          <Link href="/resume" rel="noopener noreferrer">
+            View Resume
+          </Link>
+        </p>
         </div>
       </section>
       <div className="my-8 w-full border-t border-gray-200 dark:border-gray-800" />
