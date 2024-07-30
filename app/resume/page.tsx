@@ -16,7 +16,7 @@ const ResumePage: React.FC = () => {
             title="Resume PDF"
           />
           <Button asChild className='mt-4'>
-            <Link href="./_static/Gunal_Gupta_IIIT_Vadodara_ICD_Resume.pdf" download="resume.pdf">
+            <Link href="./_static/Gunal_Gupta_IIIT_Vadodara_ICD_Resume.pdf" download="Gunal_Gupta_IIIT_Vadodara_ICD_Resume.pdf" target='_blank'>
               <Download className="mr-2 h-4 w-4" /> Download Resume
             </Link>
           </Button>
