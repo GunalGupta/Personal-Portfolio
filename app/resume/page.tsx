@@ -6,7 +6,7 @@ import { Download } from 'lucide-react';
 
 const ResumePage: React.FC = () => {
   return (
-    <Card className="w-full max-w-4xl mx-auto mt-8">
+    <Card className="w-full max-w-4xl mx-auto my-4">
       <CardContent className="p-6">
         {/* PDF preview for larger screens */}
         <div className="hidden sm:block">
@@ -15,6 +15,11 @@ const ResumePage: React.FC = () => {
             className="w-full h-[calc(100vh-200px)]"
             title="Resume PDF"
           />
+          <Button asChild className='mt-4'>
+            <Link href="./_static/Gunal_Gupta_IIIT_Vadodara_ICD_Resume.pdf" download="resume.pdf">
+              <Download className="mr-2 h-4 w-4" /> Download Resume
+            </Link>
+          </Button>
         </div>
 
         {/* Download button for mobile devices */}
