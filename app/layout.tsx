@@ -4,8 +4,8 @@ import { Space_Grotesk } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "@/components/minimal-theme/theme-provider"
 import { TailwindIndicator } from "@/components/TailwindIndicator";
-import {Header} from "@/components/minimal-theme/Header";
-import {Footer} from "@/components/minimal-theme/Footer";
+import {MinimalHeader} from "@/components/minimal-theme/Header";
+import {MinimalFooter} from "@/components/minimal-theme/Footer";
 import "./globals.css";
 
 const space_grotesk = Space_Grotesk({
@@ -40,9 +40,9 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <main className="mx-4  px-2 md:px-0 lg:mx-auto flex flex-col justify-between min-h-screen">
-            <Header />
+            <MinimalHeader />
             {children}
-            <Footer />
+            <MinimalFooter />
           </main>
           <TailwindIndicator />
         </ThemeProvider>

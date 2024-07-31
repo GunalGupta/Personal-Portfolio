@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { siteMetadata } from "../../data/siteMetadata";
 
-export function Footer() {
+export function MinimalFooter() {
   return (
     <footer className="flex justify-center align-center pt-10 pb-5 h-20px">
       <p className="text-gray-500  dark:text-gray-400 text-sm">

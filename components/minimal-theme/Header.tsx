@@ -1,6 +1,5 @@
 "use client";
 
-import clsx from "clsx";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { LayoutGroup, motion } from "framer-motion";
@@ -23,7 +22,7 @@ const navItems = {
   },
 };
 
-export function Header() {
+export function MinimalHeader() {
   let pathname = usePathname() || "/";
   if (pathname.includes("/blog/")) {
     pathname = "/blog";
