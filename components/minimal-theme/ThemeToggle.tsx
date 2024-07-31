@@ -1,7 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
-import { MoonIcon, SunIcon } from "./icons";
+import { MoonIcon, SunIcon } from "../icons";
 
 export function ThemeToggler() {
   const { theme, setTheme } = useTheme();

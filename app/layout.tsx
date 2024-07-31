@@ -2,10 +2,10 @@ import type { Metadata } from "next";
 import Head from "./head";
 import { Space_Grotesk } from "next/font/google";
 import { cn } from "@/lib/utils";
-import { ThemeProvider } from "@/components/theme-provider"
+import { ThemeProvider } from "@/components/minimal-theme/theme-provider"
 import { TailwindIndicator } from "@/components/TailwindIndicator";
-import {Header} from "@/components/Header";
-import {Footer} from "@/components/Footer";
+import {Header} from "@/components/minimal-theme/Header";
+import {Footer} from "@/components/minimal-theme/Footer";
 import "./globals.css";
 
 const space_grotesk = Space_Grotesk({
