@@ -4,7 +4,7 @@ import Link from "next/link";
 import JobTitleAnimation from "./JobTitleAnimation";
 import SocialIcons from "./SocialIcons";
 
-function About() {
+function MinimalAbout() {
     return(
         <React.Fragment>
             <h1 className="text-4xl font-bold mb-4">About</h1>
@@ -65,4 +65,4 @@ function About() {
     )
 }
 
-export default About;
+export default MinimalAbout;

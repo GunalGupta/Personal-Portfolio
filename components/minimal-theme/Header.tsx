@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { LayoutGroup, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { ThemeToggler } from "./ThemeToggle";
+import { ThemeToggler } from "../ThemeToggler";
 import React from "react";
 
 const navItems = {
