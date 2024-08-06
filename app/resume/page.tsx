@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Resume from "@/components/minimal-theme/Resume";
+import Resume from "@/components/minimal-ui/Resume";
 
 export const metadata: Metadata = {
   title: "Resume | Gunal Gupta",
