@@ -1,23 +1,52 @@
-import type { Metadata } from "next";
+"use client";
 import Head from "./head";
 import MinimalLayout from "@/components/minimal-theme/MinimalLayout";
-import "./globals.css";
+import TechyLayout from "@/components/techy-theme/TechyLayout";
+import { getCookie } from "@/utils/cookieManager";
+import React, { useEffect, useState } from "react";
+import { useRouter, usePathname } from "next/navigation";
 
-export const metadata: Metadata = {
-  title: "Gunal Gupta",
-  description: "Personal Portfolio website developed by Gunal Gupta, using NextJS, Tailwind CSS & shadcn-ui",
-};
+export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const [selectedTheme, setSelectedTheme] = useState<"minimal" | "techy" | null>(null);
+  const pathname = usePathname();
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+  useEffect(() => {
+    const theme = getCookie("selectedTheme");
+    setSelectedTheme(theme as "minimal" | "techy");
+  }, []);
+
+  // If the user is on the /uitheme page, render the children directly without any layout
+  if (pathname === "/uitheme") {
+    return (
+      <html lang="en" suppressHydrationWarning>
+        <Head />
+        <body>{children}</body>
+      </html>
+    );
+  }
+
   return (
     <html lang="en" suppressHydrationWarning>
       <Head />
-      <MinimalLayout>{children}</MinimalLayout>
+      <body>
+        {selectedTheme === null ? (
+          // Optionally, show a loading indicator or fallback content
+          <div className="flex items-center justify-center h-screen">
+            <div className="wrapper">
+              <div className="circle"></div>
+              <div className="circle"></div>
+              <div className="circle"></div>
+              <div className="shadow"></div>
+              <div className="shadow"></div>
+              <div className="shadow"></div>
+            </div>
+          </div>
+        ) : selectedTheme === "minimal" ? (
+          <MinimalLayout>{children}</MinimalLayout>
+        ) : (
+          <TechyLayout>{children}</TechyLayout>
+        )}
+      </body>
     </html>
   );
 }
-
