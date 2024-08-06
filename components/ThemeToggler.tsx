@@ -1,39 +1,47 @@
-"use client";
+import React, { useState, useEffect } from 'react';
+import { setCookie, getCookie } from "@/utilis/cookieManager";
 
-import React, { useState, useEffect } from "react";
-import getClientCookie from "@/utils/getClientCookie";
-import { setCookie, getCookie } from "@/utils/cookieManager";
-import { MoonIcon, SunIcon } from "./icons";
+const ThemeToggleButton = () => {
+  const [currentTheme, setCurrentTheme] = useState('minimal');
+  const [isHovered, setIsHovered] = useState(false);
 
-export function ThemeToggler() {
-    const selectTheme = (theme: "minimal" | "techy") => {
-        setCookie("selectedTheme", theme);
-        window.location.reload(); // Reload to apply the selected theme
-      };
-    
-    const [CurrentTheme, setCurrentTheme] = useState<"minimal" | "techy" | null>(getClientCookie());
+  useEffect(() => {
+    const theme = getCookie("selectedTheme");
+    if (theme) {
+      setCurrentTheme(theme);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const newTheme = currentTheme === 'minimal' ? 'techy' : 'minimal';
+    setCurrentTheme(newTheme);
+    setCookie("selectedTheme", newTheme);
+    window.location.href = "/";
+  };
 
   return (
-    <button
-      aria-label="Toggle theme"
-      onClick={() => {
-        if (CurrentTheme === "techy") {
-            selectTheme("minimal")
-          return;
-        }
-        selectTheme("techy");
-      }}
-      className="rounded-xs rounded p-1 hover:bg-gray-200 hover:dark:bg-[#313131]"
-    >
-      {CurrentTheme === "minimal" ? (
-        <span className="sun-icon">
-          <SunIcon height={25} width={25} />
-        </span>
-      ) : (
-        <span className="moon-icon">
-          <MoonIcon height={25} width={25} />
-        </span>
+    <div className="relative inline-block">
+      <button
+        onClick={toggleTheme}
+        onMouseEnter={() => setIsHovered(true)}
+        onMouseLeave={() => setIsHovered(false)}
+        className={`w-14 h-7 flex items-center rounded-full p-1 duration-300 ease-in-out ${
+          currentTheme === 'minimal' ? 'bg-gray-300' : 'bg-blue-600'
+        }`}
+      >
+        <div
+          className={`bg-white w-5 h-5 rounded-full shadow-md transform duration-300 ease-in-out ${
+            currentTheme === 'minimal' ? 'translate-x-0' : 'translate-x-7'
+          }`}
+        ></div>
+      </button>
+      {isHovered && (
+        <div className="absolute mt-2 py-2 px-4 bg-gray-800 text-white text-sm rounded-md shadow-lg z-10 md:w-32 whitespace-normal">
+          Switch to {currentTheme === 'minimal' ? 'Techy' : 'Minimal'} UI
+        </div>
       )}
-    </button>
+    </div>
   );
-}
+};
+
+export default ThemeToggleButton;
