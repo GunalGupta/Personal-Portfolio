@@ -49,7 +49,7 @@ function MinimalAbout() {
                     <li>Beyond development, I love crawling the internet for new tech stories and enjoy playing mobile games</li>
                     </ul>
                     <p className="mb-4">
-                    If you'd like to hire me, please send me an email at{' '}
+                    If you&apos;d like to hire me, please send me an email at{' '}
                     <Link
                         href="mailto:guptagunal@gmail.com"
                         className="text-blue-500 hover:underline"

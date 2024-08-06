@@ -2,6 +2,7 @@
 import React, { useRef } from 'react'
 import { logo } from '../../public';
 import Link from 'next/link';
+import Image from 'next/image';
 import { gsap } from 'gsap';
 import { useGSAP } from "@gsap/react";
 import ThemeToggler  from "../ThemeToggler";
@@ -37,7 +38,7 @@ const TechyHeader = () => {
         <>
             <div ref={app} className='header sticky z-[101] w-full h-[68px] flex justify-between  p-5 invisible'>
                 <div id="logo" className='group flex gap-2 pl-2'>
-                    <img src={logo.src} className='sm:w-[32px] w-[24px] group-hover:animate-spinOnce' alt="" />
+                    <Image src={logo.src} className='sm:w-[32px] w-[24px] group-hover:animate-spinOnce' alt="" />
                     <Link href={"#"} className='sm:text-lg text-md font-bold group-hover:' >
                         Code <span className='text-customBlue'>By</span>  Gunal
                     </Link>

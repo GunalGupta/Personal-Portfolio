@@ -105,7 +105,7 @@ const Contact = () => {
                             whileTap={{ scale: 0.95 }}
                             onClick={handleClick}
                         >
-                            Let's get in touch
+                            Let&#39;s get in touch
                             <motion.span
                                 className="ml-2"
                                 initial={{ x: 0, y: 0 }}

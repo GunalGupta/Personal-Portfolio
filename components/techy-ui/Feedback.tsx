@@ -1,5 +1,4 @@
 import React from 'react'
-import { upwork } from '../../public';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
 import { useGSAP } from "@gsap/react";
@@ -23,17 +22,17 @@ const Feedback = () => {
 
     const feedbacks = [{
         text: "Great communication throughout project and was very quick to start project and more importantly completed the project before the deadline.",
-        img: upwork.src,
+        // img: upwork.src,
         client: "UpWork Client"
     },
     {
         text: "Gunal did a great job turning the design into a functional website on a tight schedule. He proactively gave input and met my high standards in details and perfection.",
-        img: upwork.src,
+        // img: upwork.src,
         client: "UpWork Client"
     },
     {
         text: "Gunal completed the job with 100% accuracy. He is one of the best js developers I have ever met. I will definately work with him in the near future",
-        img: upwork.src,
+        // img: upwork.src,
         client: "UpWork Client"
     }]
 
@@ -73,7 +72,7 @@ const Feedback = () => {
                                         </span>
                                     </span>
                                     <div className="flex items-center gap-4 pt-4 text-sm text-left text-customBlue ">
-                                        <img src={feedback.img} alt="user name" title="user name" width="48" height="48" className="max-w-full  shrink-0" />
+                                        {/* <img src={feedback.img} alt="user name" title="user name" width="48" height="48" className="max-w-full  shrink-0" /> */}
                                         <div className="flex flex-col gap-1">
                                             <span className="font-bold uppercase">{feedback.client}</span>
                                         </div>
