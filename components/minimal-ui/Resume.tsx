@@ -11,12 +11,12 @@ const Resume: React.FC = () => {
         {/* PDF preview for larger screens with download button */}
         <div className="hidden sm:block">
           <iframe
-            src="./_static/Gunal_Gupta_IIIT_Vadodara_ICD_Resume.pdf"
+            src="_static/Gunal_Gupta_IIIT_Vadodara_ICD_Resume.pdf"
             className="w-full h-[calc(100vh-200px)]"
             title="Resume PDF"
           />
           <Button asChild className='mt-4 hover:scale-105 transform transition duration-200'>
-            <Link href="./_static/Gunal_Gupta_IIIT_Vadodara_ICD_Resume.pdf" download="Gunal_Gupta_IIIT_Vadodara_ICD_Resume.pdf" target='_blank'>
+            <Link href="_static/Gunal_Gupta_IIIT_Vadodara_ICD_Resume.pdf" download="Gunal_Gupta_IIIT_Vadodara_ICD_Resume.pdf" target='_blank'>
               <Download className="mr-2 h-4 w-4" /> Download Resume
             </Link>
           </Button>
@@ -28,7 +28,7 @@ const Resume: React.FC = () => {
             For better viewing experience on mobile, please download the resume.
           </p>
           <Button asChild>
-            <Link href="./_static/Gunal_Gupta_IIIT_Vadodara_ICD_Resume.pdf" download="resume.pdf">
+            <Link href="_static/Gunal_Gupta_IIIT_Vadodara_ICD_Resume.pdf" download="resume.pdf">
               <Download className="mr-2 h-4 w-4" /> Download Resume
             </Link>
           </Button>

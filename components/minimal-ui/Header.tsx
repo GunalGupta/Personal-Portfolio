@@ -1,43 +1,27 @@
-"use client";
-
+import React from "react";
 import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { LayoutGroup, motion } from "framer-motion";
 import { cn } from "@/lib/utils";
-import { ThemeToggler } from "../ThemeToggler";
-import React from "react";
+import ThemeToggleButton from "../ThemeToggler";
 
 const navItems = {
-  "/": {
-    name: "home",
-  },
-  "/experience": {
-    name: "experience",
-  },
-  "/projects": {
-    name: "projects",
-  },
-  "/resume": {
-    name: "resume",
-  },
+  "/": { name: "home" },
+  "/experience": { name: "experience" },
+  "/projects": { name: "projects" },
+  "/resume": { name: "resume" },
 };
 
 export function MinimalHeader() {
-  let pathname = usePathname() || "/";
-  if (pathname.includes("/blog/")) {
-    pathname = "/blog";
-  }
+  const pathname = usePathname() || "/";
 
   return (
-    <header className="mb-10 tracking-tight mt-10">
-      <div className=" lg:sticky lg:top-20">
+    <header className="mb-10 mt-10">
+      <div className="lg:sticky lg:top-20">
         <LayoutGroup>
-          <nav
-            className="fade relative scroll-pr-6  px-0 pb-0 md:relative md:overflow-auto"
-            id="nav"
-          >
+          <nav className="relative">
             <div className="flex w-full flex-row justify-between items-center">
-              <div className="flex flex-row justify-between">
+              <div className="flex flex-row space-x-4">
                 {Object.entries(navItems).map(([path, { name }]) => {
                   const isActive = path === pathname;
                   return (
@@ -45,30 +29,30 @@ export function MinimalHeader() {
                       key={path}
                       href={path}
                       className={cn(
-                        "flex align-middle transition-all hover:text-neutral-800 dark:hover:text-neutral-200",
-                        !isActive && "text-neutral-500",
+                        "transition-colors hover:text-neutral-800 dark:hover:text-neutral-200",
+                        isActive ? "text-neutral-800 dark:text-neutral-200" : "text-neutral-500"
                       )}
                     >
-                      <span className="relative px-2 py-1">
+                      <span className="relative py-1">
                         {name}
-                        {path === pathname ? (
+                        {isActive && (
                           <motion.div
-                            className="absolute inset-0 top-7 z-[-1] mx-2 h-[1px] bg-neutral-200 from-transparent to-neutral-900 dark:bg-neutral-800 dark:bg-gradient-to-r"
-                            layoutId="sidebar"
+                            className="absolute bottom-0 left-0 right-0 h-[1px] bg-neutral-200 dark:bg-neutral-800"
+                            layoutId="activeNavItem"
                             transition={{
                               type: "spring",
                               stiffness: 350,
                               damping: 30,
                             }}
                           />
-                        ) : null}
+                        )}
                       </span>
                     </Link>
                   );
                 })}
               </div>
               <div>
-                <ThemeToggler />
+                <ThemeToggleButton />
               </div>
             </div>
           </nav>

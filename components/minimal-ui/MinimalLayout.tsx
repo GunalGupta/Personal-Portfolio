@@ -1,8 +1,8 @@
 import { Space_Grotesk } from "next/font/google";
 import { cn } from "@/lib/utils";
 import { TailwindIndicator } from "@/components/TailwindIndicator";
-import {MinimalHeader} from "@/components/minimal-theme/Header";
-import {MinimalFooter} from "@/components/minimal-theme/Footer";
+import {MinimalHeader} from "./Header";
+import {MinimalFooter} from "./Footer";
 import './globals.css';
 
 const space_grotesk = Space_Grotesk({
@@ -19,7 +19,7 @@ const MinimalLayout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
           space_grotesk.className,
         )}
       >
-          <main className="mx-4  px-2 md:px-0 lg:mx-auto flex flex-col justify-between min-h-screen">
+          <main className="mx-4 px-2 md:px-0 lg:mx-auto flex flex-col justify-between min-h-screen">
             <MinimalHeader />
             {children}
             <MinimalFooter />
