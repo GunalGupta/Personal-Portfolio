@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { setStoredTheme } from "@/utils/themeManager";
+import { setStoredTheme } from "@/utilis/themeManager";
 
 const ThemeSelector: React.FC = () => {
   const selectTheme = (theme: "minimal" | "techy") => {
