@@ -50,7 +50,7 @@ export const PERSONAL_APPS = [
         demo: "https://www.deepikagupta.co.in/",
         thumbnail: "/_static/projects/deepika-gupta-portfolio.png",
         description:
-            "This is a personal portfolio website of Prof. Dr. Deepika Gupta. The website showcases her academic and professional accomplishments and provides visitors with information about her research, publications, and projects.",
+            "A personal portfolio website for Prof. Dr. Deepika Gupta. The website showcases her academic and professional accomplishments and provides visitors with information about her research, publications, and projects.",
         tags: ["HTML", "CSS", "JavaScript", "AOS Library"],
     },
   ] as const;

@@ -3,8 +3,8 @@ import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
   const selectedTheme = request.cookies.get("selectedTheme")?.value;
-  if (!selectedTheme && !request.nextUrl.pathname.startsWith('/uitheme')) {
-    return NextResponse.redirect(new URL('/uitheme', request.url));
+  if (!selectedTheme && !request.nextUrl.pathname.startsWith('/ui-theme')) {
+    return NextResponse.redirect(new URL('/ui-theme', request.url));
   }
   return NextResponse.next();
 }

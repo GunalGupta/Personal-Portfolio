@@ -1,8 +1,8 @@
 "use client";
 import Head from "./head";
-import MinimalLayout from "@/components/minimal-theme/MinimalLayout";
-import TechyLayout from "@/components/techy-theme/TechyLayout";
-import { getCookie } from "@/utils/cookieManager";
+import MinimalLayout from "@/components/minimal-ui/MinimalLayout";
+import TechyLayout from "@/components/techy-ui/TechyLayout";
+import { getCookie } from "@/utilis/cookieManager";
 import React, { useEffect, useState } from "react";
 import { useRouter, usePathname } from "next/navigation";
 
@@ -16,10 +16,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   }, []);
 
   // If the user is on the /uitheme page, render the children directly without any layout
-  if (pathname === "/uitheme") {
+  if (pathname === "/ui-theme") {
     return (
       <html lang="en" suppressHydrationWarning>
-        <Head />
         <body>{children}</body>
       </html>
     );
@@ -31,8 +30,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         {selectedTheme === null ? (
           // Optionally, show a loading indicator or fallback content
-          <div className="flex items-center justify-center h-screen">
-            <div className="wrapper">
+          <div className="flex items-center justify-center h-screen bg-gray-100">
+            <div className="wrapper-loading">
               <div className="circle"></div>
               <div className="circle"></div>
               <div className="circle"></div>

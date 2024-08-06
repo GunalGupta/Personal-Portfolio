@@ -1,11 +1,14 @@
-"use client";
-import React, { useState, useEffect } from "react";
-import getClientCookie from "@/utils/getClientCookie";
-import MinimalAbout from "@/components/minimal-theme/About";
-import TechyAbout from "@/components/techy-theme/About";
-import Hero from "@/components/techy-theme/Hero";
-import Navigation from "@/components/techy-theme/Navigation";
+'use client'
+
+import React, { useRef, useEffect, useState } from 'react'
+import getClientCookie from "@/utilis/getClientCookie";
+import MinimalAbout from "@/components/minimal-ui/About";
+import Skills from '@/components/techy-ui/Skills';
+import TechyAbout from '../components/techy-ui/About';
+import Hero from '@/components/techy-ui/Hero';
+import Contact from '@/components/techy-ui/Contact';
 import Lenis from '@studio-freight/lenis'
+import { Project } from '@/components/techy-ui/Project';
 
 export default function Home() {
   const [selectedTheme, setSelectedTheme] = useState<"minimal" | "techy" | null>(getClientCookie());
@@ -24,27 +27,22 @@ export default function Home() {
   }, [])
 
   return (
-    <>
-      {selectedTheme === null ? (
-        <div className="flex items-center justify-center h-screen">
-          <div className="wrapper">
-            <div className="circle"></div>
-            <div className="circle"></div>
-            <div className="circle"></div>
-            <div className="shadow"></div>
-            <div className="shadow"></div>
-            <div className="shadow"></div>
-          </div>
-        </div>
-      ) : selectedTheme === "minimal" ? (
-        <MinimalAbout />
-      ) : (
-        <>
-          <Navigation />
-          <Hero />
-          <TechyAbout />
-        </>
-      )}
-    </>
-  );
+    <div >
+      {
+        selectedTheme === "minimal" ? 
+        (
+          <MinimalAbout />
+        ) : selectedTheme === "techy" ? 
+        (
+          <>
+            <Hero />
+            <TechyAbout />
+            <Skills container={''} texts={[]} newRadius={0} />
+            <Project />
+            <Contact />
+          </>
+        ) : null
+      }
+    </div>
+  )
 }

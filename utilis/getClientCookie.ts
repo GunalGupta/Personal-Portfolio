@@ -1,4 +1,4 @@
-import { getCookie } from "@/utils/cookieManager";
+import { getCookie } from "@/utilis/cookieManager";
 
 const getClientCookie = () => {
   const theme = getCookie("selectedTheme");
