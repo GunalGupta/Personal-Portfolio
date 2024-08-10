@@ -5,6 +5,11 @@ import { useRouter } from "next/navigation";
 import { motion } from "framer-motion";
 import { setCookie, getCookie } from "@/utilis/cookieManager";
 
+interface Theme {
+  name: string;
+  shapes: string[];
+}
+
 const ThemeSelection: React.FC = () => {
   const router = useRouter();
 
@@ -20,25 +25,24 @@ const ThemeSelection: React.FC = () => {
     window.location.href = "/";
   };
 
-  const themes = [
+  const themes: Theme[] = [
     { name: "Minimal", shapes: ["square", "circle", "triangle", "diamond"] },
     { name: "Techy", shapes: ["square", "circle", "triangle", "diamond"] },
   ];
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white">
+    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-900 text-white p-4">
       <motion.div
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
-        className="text-center"
+        className="text-center mb-8"
       >
-        <h1 className="text-5xl font-bold mb-2 font-sans">One Portfolio</h1>
-        <h1 className="text-5xl font-semibold font-sans">Two Personalities</h1>
-        <br/>
-        <h4 className="font-sans mt-4 mb-4">Choose any one ui-theme:</h4>
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-2 font-sans">One Portfolio</h1>
+        <h1 className="text-4xl sm:text-5xl lg:text-6xl font-semibold font-sans">Two Personalities</h1>
+        <h4 className="font-sans mt-4 text-sm sm:text-base lg:text-lg">Choose any one ui-theme:</h4>
       </motion.div>
-      <div className="flex space-x-12">
+      <div className="flex flex-wrap justify-center gap-8 w-full max-w-4xl">
         {themes.map((theme, index) => (
           <motion.div
             key={theme.name}
@@ -50,13 +54,13 @@ const ThemeSelection: React.FC = () => {
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
-              onClick={() => selectTheme(theme.name.toLowerCase() as any)}
-              className="w-64 h-64 bg-gray-800 rounded-lg shadow-lg flex flex-wrap justify-center items-center p-6 hover:bg-gray-700 transition-colors duration-200"
+              onClick={() => selectTheme(theme.name.toLowerCase() as "minimal" | "techy")}
+              className="w-36 h-36 sm:w-48 sm:h-48 lg:w-64 lg:h-64 bg-gray-800 rounded-lg shadow-lg flex flex-wrap justify-center items-center p-4 hover:bg-gray-700 transition-colors duration-200"
             >
               {theme.shapes.map((shape, i) => (
                 <div
                   key={i}
-                  className={`w-20 h-20 m-2 ${
+                  className={`w-1/3 aspect-square m-1 ${
                     theme.name === "Minimal"
                       ? ["border-2 border-white", "border-2 border-white", "bg-white", "bg-white"][i]
                       : "bg-opacity-100"
@@ -80,7 +84,7 @@ const ThemeSelection: React.FC = () => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 + 0.2 }}
-              className="mt-4 text-2xl font-semibold font-sans"
+              className="mt-4 text-xl sm:text-2xl lg:text-3xl font-semibold font-sans"
             >
               {theme.name}
             </motion.p>
