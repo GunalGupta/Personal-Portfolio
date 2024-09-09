@@ -1,5 +1,7 @@
 'use client';
 import React, { useRef, useState, useEffect } from 'react'
+import { Button } from '../ui/button';
+import { useRouter } from "next/navigation";
 import {
     motion,
     useScroll,
@@ -139,6 +141,10 @@ const Hero = () => {
         return () => clearTimeout(timeoutId); // Cleanup the timeout on component unmount
     }, []);
 
+    const router = useRouter();
+    function handleClick() {
+        router.push('mailto:guptagunal@gmail.com');
+    }
 
     return (
         <section id='Home' className='hero-section relative h-[100vh] max-w-[100vw] overflow-hidden  '>
@@ -150,8 +156,7 @@ const Hero = () => {
                 />
             </div>
             <div className='m-auto max-w-[1600px] p-4  flex md:flex-row flex-col w-full'>
-
-                <div className='one md:w-1/2 w-full md:mt-48 mt-8'>
+                <div className='relative one md:w-1/2 w-full md:mt-48 mt-8 z-[99]'>
                     <p className='heading-2 sm:heading-1 m-auto font-bold '>
                         Hey There,
                     </p>
@@ -159,12 +164,11 @@ const Hero = () => {
                         I&apos;m Gunal
                     </p>
                     <div className='text-md sm:text-lg font-semibold mt-[15vh] sm:mt-[5vh] hover:cursor-pointer z-[99]' >
-                        <p
-                            onClick={() => window.location.href = "mailto:guptagunal@gmail.com"}
-
-                            className='px-4 py-2 sm:px-8 sm:py-4 bg-customBlue  w-fit rounded-full items-center flex gap-2'>
+                        <Button 
+                            onClick={handleClick} 
+                            className='px-4 py-2 sm:px-8 sm:py-4 bg-customBlue w-fit rounded-full items-center flex gap-2 z-[99] hover:bg-white hover:text-black'>
                             Let&apos;s Connect
-                        </p>
+                        </Button>
                     </div>
                 </div>
                 <div className='two md:w-1/2 w-full text-end  align-middle mt-32 sm:mt-48 '>
