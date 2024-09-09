@@ -160,7 +160,7 @@ const Hero = () => {
                     </p>
                     <div className='text-md sm:text-lg font-semibold mt-[15vh] sm:mt-[5vh] hover:cursor-pointer z-[99]' >
                         <p
-                            onClick={() => scrollToSection('Contact')}
+                            onClick={() => window.location.href = "mailto:guptagunal@gmail.com"}
 
                             className='px-4 py-2 sm:px-8 sm:py-4 bg-customBlue  w-fit rounded-full items-center flex gap-2'>
                             Let&apos;s Connect
